@@ -1,3 +1,4 @@
 .env
-./public
-./public-backup
+/public/*
+/public-backup/*
+/node_modules
