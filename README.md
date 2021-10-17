@@ -25,7 +25,7 @@ The script will be run on webhook calls but may be modified for other use cases.
 
 The provided script is for the following use.
 
-## Frontend notes: {frontend}
+## Frontend notes:
 
 This backend was created for Astro js since it does not yet  
 have its own site generation mechanisms (like NEXT js does).
