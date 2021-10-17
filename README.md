@@ -1,6 +1,6 @@
 # Sanity Backend
-Currently the goal of this backend will be to provide a basic compatibility with  
-Sanity webhooks, and allow scripts or possibly other functions to run in response.
+Currently the goal of this backend will be to provide basic functions responding to  
+Sanity webhook calls and possible site generation tiggers. (see Frontend Notes)
 
 ## Use
 Clone repo and:  
@@ -25,7 +25,7 @@ The script will be run on webhook calls but may be modified for other use cases.
 
 The provided script is for the following use.
 
-## Frontend notes:
+## Frontend notes: {frontend}
 
 This backend was created for Astro js since it does not yet  
 have its own site generation mechanisms (like NEXT js does).
