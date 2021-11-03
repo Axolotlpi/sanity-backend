@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
-var {isValidSignature, requireSignedRequest} = require('@sanity/webhook')
+var {requireSignedRequest} = require('@sanity/webhook')
 var api = require('./api');
 
 
@@ -11,12 +11,16 @@ var app = express();
 //static stite setup
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public-backup')));
-app.use(logger('dev'));
+// app.use(logger('dev'));
+
+// errors setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 //sanity webhook
 app.post('/api', 
-  express.json(), 
- requireSignedRequest({secret: process.env.SANITY_KEY}), 
+  express.json(),
+  requireSignedRequest({secret: process.env.SANITY_KEY}), 
   api);
 
 
@@ -27,20 +31,18 @@ app.post('/api',
 app.use(function(req, res, next) {
   res.status(404);
 
-  // respond with html page
-  if (req.accepts('html')) {
-    res.render('404', { url: req.url });
-    return;
-  }
+  res.format({
+    html: function () {
+      res.render('404', { url: req.url })
+    },
+    json: function () {
+      res.json({ error: 'Not found' })
+    },
+    default: function () {
+      res.type('txt').send('Not found')
+    }
+  })
 
-  // respond with json
-  if (req.accepts('json')) {
-    res.json({ error: 'Not found' });
-    return;
-  }
-
-  // default to plain-text. send()
-  res.type('txt').send('Not found');
 });
 
 // error handler

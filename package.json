@@ -9,13 +9,14 @@
     "@sanity/webhook": "^1.0.2",
     "debug": "~2.6.9",
     "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
     "express": "~4.16.1",
     "morgan": "~1.9.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
   },
-  "description": "sanity testing backend",
+  "description": "sanity backend",
   "main": "app.js",
   "author": "",
   "license": "ISC"
