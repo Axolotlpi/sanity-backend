@@ -1,6 +1,11 @@
 # Sanity Backend
 Currently the goal of this backend will be to provide basic functions responding to  
-Sanity webhook calls and possible site generation tiggers. (see Frontend Notes)
+Sanity webhook calls and possible site generation tiggers.
+This of course is not nessesary for hosting services such as  
+netlify which provide api hooks for site generation.
+This is for basic node backends, and is by no means a long term  
+solution for automated site generation.
+(see Frontend Notes)
 
 ## Use
 Clone repo and:  
